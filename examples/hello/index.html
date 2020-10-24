@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>WebAssembly in D</title>
+  	<meta charset="utf-8" />
+	<style>
+		#stdout {
+			white-space: pre;
+		}
+	</style>
+  </head>
+  <body>
+    <div id="screen"></div>
+
+    <div id="stdout"></div>
+
+    <script src="/webassembly-core.js"></script>
+    <script>
+	WebAssembly.instantiateStreaming(fetch('./hello.wasm'), importObject)
+		.then(function(obj) {
+			memory = obj.instance.exports.memory;
+			bridge_malloc = obj.instance.exports.bridge_malloc;
+			exports = obj.instance.exports;
+			obj.instance.exports._start();
+		});
+    </script>
+  </body>
+</html>

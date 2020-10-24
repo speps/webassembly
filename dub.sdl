@@ -1,0 +1,4 @@
+name "webassembly"
+targetType "none"
+dependency "hello" path="examples/hello"
+dependency "tetris" path="examples/tetris"

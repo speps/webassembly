@@ -1,0 +1,6 @@
+name "hello"
+targetType "executable"
+toolchainRequirements "ldc >= 1.23"
+importPaths "../../arsd-webassembly"
+sourceFiles "hello.d" "../../arsd-webassembly/object.d"
+dflags "-i=." "-i=std" "-L=--allow-undefined"
